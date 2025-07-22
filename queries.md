@@ -4,7 +4,7 @@ This file contains the MongoDB queries used for analysis tasks as described in t
 
 ---
 
-## Task 1 – Studio Ghibli - Ratings Over Time
+## Task 1 – Studio Ghibli - Ratings by Year
 
 ```javascript
 db.anime.find(
