@@ -8,7 +8,7 @@ This file contains the MongoDB queries used for analysis tasks as described in t
 
 ```javascript
 db.anime.find(
-  { Studio: "Studio Ghibli" }, // Filter for Ghilbi Studio
+  { Studio: "Studio Ghibli" }, // Filter for Ghibli Studio
   {
     Rank: 1,
     Name: 1,
