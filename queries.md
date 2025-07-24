@@ -48,3 +48,30 @@ db.anime.aggregate([
   }
 ]);
 ```
+---
+
+## Task 3 - Most Popular Tags in Anime Productions
+
+```javascript
+db.anime.aggregate([
+  {
+    $unwind: "$Tags",
+  },
+  {
+    $group: {
+      _id: "$Tags",
+      NumberOfProductions: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { NumberOfProductions: -1 }
+  },
+  {
+    $project: {
+      _id: 0,
+      Tag: "$_id",
+      NumberOfProductions: 1
+    }
+  }
+]);
+```
