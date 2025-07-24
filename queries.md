@@ -82,3 +82,28 @@ db.anime.aggregate([
 ---
 
 ---
+
+## Task 4 –  Studio Average Ratings vs. Average Episode Count
+
+```javascript
+db.anime.aggregate([
+  {
+    $group: {
+      _id: "$Studio",
+      Avg_Episodes: {
+        $avg: "$Episodes"
+      },
+      Avg_Rating: {
+        $avg: "$Rating",
+      }
+    },
+    $sort: {
+      Avg_Rating: -1
+    }
+  }
+]);
+```
+
+---
+
+---
