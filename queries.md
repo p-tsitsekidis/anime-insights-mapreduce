@@ -48,6 +48,9 @@ db.anime.aggregate([
   }
 ]);
 ```
+
+---
+
 ---
 
 ## Task 3 - Most Popular Tags in Anime Productions
@@ -75,3 +78,7 @@ db.anime.aggregate([
   }
 ]);
 ```
+
+---
+
+---
