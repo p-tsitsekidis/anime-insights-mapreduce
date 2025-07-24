@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Load data
-data = pd.read_csv('/home/petros/Desktop/anime/task2/task2.csv')
+data = pd.read_csv('user_rating_by_number_of_tags/anime_tag_count_and_ratings.csv')
 
 # Scatter Plot
 plt.figure(figsize=(10, 6))
