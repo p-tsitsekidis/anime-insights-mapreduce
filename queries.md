@@ -29,3 +29,22 @@ db.anime.aggregate([
 ```
 
 ---
+
+---
+
+## Task 2 - User Ratings by Tag Count
+
+```javascript
+db.anime.aggregate([
+  {
+    $project: {
+      Rank: 1,
+      Rating: 1,
+      Number_of_Tags: { $size: { $ifNull: ["$Tags", []] } }
+    }
+  },
+  {
+    $sort: { Rating: -1 }
+  }
+]);
+```
