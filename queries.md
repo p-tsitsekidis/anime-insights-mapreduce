@@ -159,3 +159,35 @@ db.anime.aggregate([
 ---
 
 ---
+
+## Task 6 – Franchise Analysis
+
+```javascript
+db.anime.aggregate([
+  {
+    $addFields: {
+      franchise: "$Related_anime"
+    }
+  },
+  {
+    $unwind: "$franchise"
+  },
+  {
+    $group: {
+      _id: "$franchise",
+      numberOfAnime: { $sum: 1 },
+      averageEpisodes: { $avg: "$Episodes" },
+      releasePeriodStart: { $min: "$Release_year" },
+      releasePeriodEnd: { $max: "$End_year" },
+      averageRating: { $avg: "$Rating" }
+    }
+  },
+  {
+    $sort: {
+      numberOfAnime: -1
+    }
+  }
+])
+```
+
+---
