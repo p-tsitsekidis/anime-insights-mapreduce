@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Load data
-df = pd.read_json("/home/petros/Desktop/anime/task5/task5.json")
+df = pd.read_json("designer_analysis/designer_metadata.json")
 
 # Getting the info from the nested studio
 df['Num_Studios'] = df['studios'].apply(len)
