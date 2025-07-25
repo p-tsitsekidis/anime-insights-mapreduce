@@ -107,3 +107,55 @@ db.anime.aggregate([
 ---
 
 ---
+
+## Task 5 – Designer Analysis
+
+```javascript
+db.anime.aggregate([
+  {
+    $match: {
+      "staff.Character Design": { $exists: true }
+    }
+  },
+  {
+    $group: {
+      _id: {
+        designer: "$staff.Character Design",
+        studio: "$Studio"
+      },
+      avgRating: { $avg: "$Rating" },
+      productions: { $sum: 1 }
+    }
+  },
+  {
+    $group: {
+      _id: "$_id.designer",
+      studios: {
+        $push: {
+          studio: "$_id.studio",
+          avgRating: "$avgRating",
+          productions: "$productions"
+        }
+      },
+      totalProductions: { $sum: "$productions" }
+    }
+  },
+  {
+    $project: {
+      _id: 0,
+      designer: "$_id",
+      totalProductions: 1,
+      studios: 1
+    }
+  },
+  {
+    $sort: {
+      totalProductions: -1
+    }
+  }
+])
+```
+
+---
+
+---
